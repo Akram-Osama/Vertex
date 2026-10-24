@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VERTEX | حيث ترتقي الحياة</title>
+    <meta name="description" content="اكتشف VERTEX، رؤية جديدة للحياة العصرية.">
+
+    <!-- Arabic fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+
+    <main class="hero" id="home">
+
+        <!-- Background video -->
+        <video class="hero-video" id="heroVideo" autoplay muted playsinline preload="auto"
+            poster="assets/images/vertex-poster.jpg">
+            <source src="assets/videos/vertex-hero.mp4" type="video/mp4">
+        </video>
+
+        <!-- Dark overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Glass header -->
+        <header class="header" id="header">
+
+            <a href="#home" class="brand" aria-label="VERTEX الرئيسية">
+                <span class="brand-symbol">V.</span>
+
+                <span class="brand-text">
+                    <span class="brand-name">VERTEX</span>
+                    <span class="brand-caption">RESIDENCES</span>
+                </span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">الرئيسية</a>
+                <a href="#vision" class="nav-link">عن المشروع</a>
+                <a href="#residences" class="nav-link">الوحدات</a>
+                <a href="#contact" class="nav-link">تواصل معنا</a>
+            </nav>
+
+            <a href="#contact" class="header-cta">
+                اطلب التفاصيل
+                <span>↗</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false"
+                aria-controls="navLinks">
+                <span></span>
+                <span></span>
+            </button>
+
+        </header>
+
+        <!-- Hero content -->
+        <section class="hero-content" id="heroContent">
+
+            <div class="hero-eyebrow">
+                <span class="eyebrow-line"></span>
+                <span>رؤية جديدة للحياة العصرية</span>
+                <span class="eyebrow-line"></span>
+            </div>
+
+            <h1>
+                <span class="title-line">مش مجرد مكان</span>
+                <span class="title-line title-accent">تعيش فيه.</span>
+            </h1>
+
+            <p class="hero-description">
+                اكتشف تجربة سكنية مختلفة، حيث تلتقي روعة التصميم
+                <br class="desktop-break">
+                مع تفاصيل صُنعت لتناسب طموحاتك.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#vision" class="primary-btn">
+                    <span>اكتشف VERTEX</span>
+                    <span class="btn-arrow">↗</span>
+                </a>
+
+                <a href="#residences" class="secondary-btn">
+                    استكشف الوحدات
+                </a>
+            </div>
+
+            <div class="hero-bottom">
+                <span class="scroll-label">اكتشف ما وراء الأفق</span>
+
+                <span class="scroll-indicator">
+                    <span></span>
+                </span>
+
+                <span class="hero-index">01 <i>/</i> 06</span>
+            </div>
+
+        </section>
+
+        <!-- Video loading fallback -->
+        <div class="video-fallback" id="videoFallback">
+            <span>VERTEX</span>
+        </div>
+
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

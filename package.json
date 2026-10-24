@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix real-state-landing-page-web run dev --"
+  }
+}
