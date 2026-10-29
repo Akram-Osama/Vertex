@@ -429,14 +429,8 @@ button {
     bottom: 35px;
     left: 50%;
 
-    display: grid;
-    grid-template-columns: 32px auto;
-    align-items: center;
-    column-gap: 15px;
-
-    color: #d7dbe0;
-    font-size: 13px;
-    direction: ltr;
+    display: flex;
+    justify-content: center;
 
     opacity: 0;
     visibility: hidden;
@@ -456,7 +450,6 @@ button {
 
 .scroll-mouse {
     position: relative;
-    grid-row: span 2;
 
     display: block;
     width: 29px;
@@ -478,13 +471,6 @@ button {
     border-radius: 2px;
 
     animation: scrollDot 1.5s infinite;
-}
-
-.scroll-chevron {
-    font-family: Arial, sans-serif;
-    font-size: 28px;
-    line-height: 16px;
-    color: #fff;
 }
 
 .hero-bottom-line {
@@ -873,9 +859,6 @@ button {
     .scroll-hint {
         left: 50%;
         bottom: 23px;
-        font-size: 11px;
-        grid-template-columns: 25px auto;
-        column-gap: 10px;
     }
 
     .scroll-mouse {
