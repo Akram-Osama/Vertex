@@ -1,83 +1,103 @@
-
 const hero = document.querySelector(".hero");
-const video = document.querySelector("#heroVideo");
-const header = document.querySelector("#header");
-const heroContent = document.querySelector("#heroContent");
-const fallback = document.querySelector("#videoFallback");
+const heroVideo = document.querySelector(".hero-video");
+
+const revealHero = () => {
+    hero?.classList.add("is-revealed");
+};
+
+heroVideo?.addEventListener("ended", revealHero, { once: true });
+
+if (heroVideo?.ended) {
+    revealHero();
+}
 
 const menuToggle = document.querySelector("#menuToggle");
-const navLinks = document.querySelector("#navLinks");
+const nav = document.querySelector("#mainNav");
 
-let revealStarted = false;
+// فتح وقفل قائمة الموبايل
+menuToggle?.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
 
-// Reveal the header and text once.
-function revealHero() {
-    if (revealStarted) return;
-    revealStarted = true;
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
 
-    // Keep the last frame visible.
-    video.pause();
-
-    hero.classList.add("is-revealing");
-
-    // Header drops from the top.
-    header.classList.add("visible");
-
-    // Text rises after the header begins to appear.
-    window.setTimeout(() => {
-        heroContent.classList.add("visible");
-        hero.classList.add("is-finished");
-    }, 550);
-}
-
-// Start the cinematic sequence when video ends.
-video.addEventListener("ended", revealHero);
-
-// Fallback if the video cannot load.
-video.addEventListener("error", () => {
-    fallback.classList.remove("hidden");
-    revealHero();
-});
-
-// Try autoplay. The video must be muted for autoplay
-// to work in most browsers.
-async function startVideo() {
-    try {
-        await video.play();
-    } catch (error) {
-        // If autoplay is blocked, show the hero content
-        // rather than leaving the page blank.
-        fallback.classList.remove("hidden");
-        revealHero();
-    }
-}
-
-// Mobile navigation.
-menuToggle.addEventListener("click", () => {
-    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-
-    menuToggle.setAttribute("aria-expanded", String(!isOpen));
     menuToggle.setAttribute(
         "aria-label",
-        isOpen ? "فتح القائمة" : "إغلاق القائمة"
+        isOpen ? "إغلاق القائمة" : "فتح القائمة"
     );
-
-    navLinks.classList.toggle("open", !isOpen);
 });
 
-// Close the mobile menu after selecting a link.
-navLinks.querySelectorAll("a").forEach((link) => {
+// إغلاق القائمة بعد اختيار أي رابط
+document.querySelectorAll(
+    ".nav-link, .header-cta, .brand, .discover-link, .scroll-hint, .contact-button"
+).forEach(link => {
     link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "فتح القائمة");
+        nav.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
     });
 });
 
-// Keep the video at the final frame and reveal the page
-// if it was already finished before listeners were attached.
-if (video.readyState >= 2 && video.ended) {
-    revealHero();
-} else {
-    startVideo();
+// الأقسام اللي بنتابعها في الصفحة
+const sectionIds = [
+    "home",
+    "project",
+    "location",
+    "units",
+    "features",
+    "contact"
+];
+
+const sections = sectionIds
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+const navLinks = [
+    ...document.querySelectorAll(".nav-link")
+];
+
+const pageNumbers = [
+    ...document.querySelectorAll(".page-number")
+];
+
+// تحديث القائمة ومؤشر الأرقام مع التمرير
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+        const visibleSections = entries
+            .filter(entry => entry.isIntersecting)
+            .sort(
+                (a, b) => b.intersectionRatio - a.intersectionRatio
+            );
+
+        if (!visibleSections.length) return;
+
+        const currentId = visibleSections[0].target.id;
+
+        // تفعيل رابط القسم الحالي
+        navLinks.forEach(link => {
+            link.classList.toggle(
+                "active",
+                link.getAttribute("href") === `#${currentId}`
+            );
+        });
+
+        // مؤشر الأرقام الأربعة
+        let pageIndex = 0;
+
+        if (currentId === "project") {
+            pageIndex = 1;
+        } else if (currentId === "location") {
+            pageIndex = 2;
+        } else if (
+            ["units", "features", "contact"].includes(currentId)
+        ) {
+            pageIndex = 3;
+        }
+
+        pageNumbers.forEach((link, index) => {
+            link.classList.toggle("active", index === pageIndex);
+        });
+    }, {
+        threshold: [0.25, 0.5, 0.7]
+    });
+
+    sections.forEach(section => observer.observe(section));
 }
