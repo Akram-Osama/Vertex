@@ -3,6 +3,7 @@ const heroVideo = document.querySelector(".hero-video");
 
 const revealHero = () => {
     hero?.classList.add("is-revealed");
+    document.body.classList.add("is-revealed");
 };
 
 heroVideo?.addEventListener("ended", revealHero, { once: true });
@@ -28,7 +29,7 @@ menuToggle?.addEventListener("click", () => {
 
 // إغلاق القائمة بعد اختيار أي رابط
 document.querySelectorAll(
-    ".nav-link, .header-cta, .brand, .discover-link, .scroll-hint, .contact-button"
+    ".nav-link, .brand, .discover-link, .scroll-hint, .contact-button"
 ).forEach(link => {
     link.addEventListener("click", () => {
         nav.classList.remove("is-open");
@@ -100,4 +101,39 @@ if ("IntersectionObserver" in window) {
     });
 
     sections.forEach(section => observer.observe(section));
+}
+
+
+/* =========================================
+   VERTEX — PROJECT SCROLL REVEAL
+========================================= */
+
+const projectRevealItems = document.querySelectorAll(
+    ".project-section .project-reveal"
+);
+
+if ("IntersectionObserver" in window) {
+    const projectObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -35px 0px"
+        }
+    );
+
+    projectRevealItems.forEach((item) => {
+        projectObserver.observe(item);
+    });
+} else {
+    // Fallback للمتصفحات القديمة
+    projectRevealItems.forEach((item) => {
+        item.classList.add("is-visible");
+    });
 }

@@ -7,7 +7,7 @@
 
     <title>VERTEX | حياة أعلى</title>
     <meta name="description" content="VERTEX — حياة استثنائية في قلب المستقبل.">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -20,6 +20,47 @@
 
 <body>
 
+    <header class="header">
+
+        <a href="#home" class="brand" aria-label="VERTEX الرئيسية">
+
+            <svg class="brand-logo" viewBox="0 0 70 58" aria-hidden="true">
+                <defs>
+                    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#f3d4a3" />
+                        <stop offset="50%" stop-color="#b68c5e" />
+                        <stop offset="100%" stop-color="#f1d3a1" />
+                    </linearGradient>
+                </defs>
+
+                <path d="M3 5H20L35 34L51 5H67L39 54H31Z" fill="url(#gold)" />
+                <path d="M20 5H34L51 35L42 49Z" fill="#f1d2a0" opacity=".72" />
+                <path d="M3 5H20L39 42L31 54Z" fill="#8d6846" opacity=".65" />
+            </svg>
+
+            <span class="brand-text" dir="ltr">
+                <span class="brand-name">VERTEX</span>
+                <span class="brand-subtitle">RESIDENTIAL TOWER</span>
+            </span>
+
+        </a>
+
+        <nav class="nav" id="mainNav">
+            <a class="nav-link active" href="#home">الرئيسية</a>
+            <a class="nav-link" href="#project">المشروع</a>
+            <a class="nav-link" href="#location">الموقع</a>
+            <a class="nav-link" href="#units">الوحدات</a>
+            <a class="nav-link" href="#features">المميزات</a>
+            <a class="nav-link" href="#contact">اتصل بنا</a>
+        </nav>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
     <!-- HERO -->
     <main class="hero" id="home">
 
@@ -30,53 +71,6 @@
 
         <div class="hero-overlay"></div>
         <div class="hero-vignette"></div>
-
-        <!-- HEADER -->
-        <header class="header">
-
-            <a href="#home" class="brand" aria-label="VERTEX الرئيسية">
-
-                <svg class="brand-logo" viewBox="0 0 70 58" aria-hidden="true">
-                    <defs>
-                        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#f3d4a3" />
-                            <stop offset="50%" stop-color="#b68c5e" />
-                            <stop offset="100%" stop-color="#f1d3a1" />
-                        </linearGradient>
-                    </defs>
-
-                    <path d="M3 5H20L35 34L51 5H67L39 54H31Z" fill="url(#gold)" />
-                    <path d="M20 5H34L51 35L42 49Z" fill="#f1d2a0" opacity=".72" />
-                    <path d="M3 5H20L39 42L31 54Z" fill="#8d6846" opacity=".65" />
-                </svg>
-
-                <span class="brand-text" dir="ltr">
-                    <span class="brand-name">VERTEX</span>
-                    <span class="brand-subtitle">RESIDENTIAL TOWER</span>
-                </span>
-
-            </a>
-
-            <nav class="nav" id="mainNav">
-                <a class="nav-link active" href="#home">الرئيسية</a>
-                <a class="nav-link" href="#project">المشروع</a>
-                <a class="nav-link" href="#location">الموقع</a>
-                <a class="nav-link" href="#units">الوحدات</a>
-                <a class="nav-link" href="#features">المميزات</a>
-                <a class="nav-link" href="#contact">اتصل بنا</a>
-            </nav>
-
-            <a href="#contact" class="header-cta">
-                <span>اطلب التفاصيل</span>
-                <span class="cta-arrow" aria-hidden="true">→</span>
-            </a>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">
-                <span></span>
-                <span></span>
-            </button>
-
-        </header>
 
         <!-- HERO CONTENT -->
         <section class="hero-content">
@@ -103,25 +97,6 @@
 
         </section>
 
-        <!-- SIDE PAGE INDICATOR -->
-        <aside class="hero-pagination" aria-label="أقسام الصفحة">
-            <a href="#home" class="page-number active">
-                <span>01</span><i></i>
-            </a>
-
-            <a href="#project" class="page-number">
-                <span>02</span><i></i>
-            </a>
-
-            <a href="#location" class="page-number">
-                <span>03</span><i></i>
-            </a>
-
-            <a href="#contact" class="page-number">
-                <span>04</span><i></i>
-            </a>
-        </aside>
-
         <!-- SCROLL HINT -->
         <div class="scroll-hint" aria-hidden="true">
             <span class="scroll-mouse"><i></i></span>
@@ -130,6 +105,125 @@
         <div class="hero-bottom-line"></div>
 
     </main>
+
+
+    <!-- ================= PROJECT SECTION ================= -->
+    <section class="project-section" id="project">
+
+        <div class="project-container">
+
+            <!-- Section heading -->
+            <div class="project-heading project-reveal">
+                <div class="project-eyebrow">
+                    <span class="project-eyebrow-line"></span>
+                    <span>DISCOVER VERTEX</span>
+                    <span class="project-eyebrow-ar">اكتشف المشروع</span>
+                </div>
+
+                <div class="project-heading-row">
+                    <h2>
+                        مفهوم جديد<br>
+                        <span>للحياة العصرية.</span>
+                    </h2>
+
+                    <p class="project-intro">
+                        ليس مجرد مكان تسكنه، بل تجربة صُممت حولك.
+                        يجمع VERTEX بين معمار استثنائي، ومساحات مدروسة،
+                        وتفاصيل تمنح كل يوم إحساسًا مختلفًا.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Main visual composition -->
+            <div class="project-visuals">
+
+                <!-- Main image -->
+                <div class="project-main-image project-reveal">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85"
+                        alt="تصميم معماري عصري فاخر" loading="lazy">
+
+                    <div class="project-image-shade"></div>
+
+                    <div class="project-image-caption">
+                        <span>تصميم يتجاوز التوقعات</span>
+                        <span class="caption-arrow">↗</span>
+                    </div>
+                </div>
+
+                <!-- Side content -->
+                <div class="project-side">
+
+                    <div class="project-side-image project-reveal">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
+                            alt="تفاصيل تصميم داخلي راقٍ" loading="lazy">
+
+                        <div class="side-image-overlay"></div>
+
+                        <span class="side-image-tag">THE ART OF LIVING</span>
+                    </div>
+
+                    <div class="project-side-copy project-reveal">
+                        <span class="project-small-number">01 / THE VISION</span>
+
+                        <h3>كل تفصيلة<br>لها معنى.</h3>
+
+                        <p>
+                            من الخطوط المعمارية إلى المساحات الداخلية،
+                            صُممت فكرة VERTEX لتمنحك توازنًا بين
+                            الخصوصية، والراحة، والحضور المعاصر.
+                        </p>
+
+                        <a href="#location" class="project-text-link">
+                            <span>اكتشف الموقع</span>
+                            <span class="project-link-arrow">←</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Project highlights -->
+            <div class="project-highlights project-reveal">
+
+                <div class="highlight-intro">
+                    <span class="highlight-kicker">THE VERTEX DIFFERENCE</span>
+                    <h3>رؤية مختلفة،<br>في كل تفصيلة.</h3>
+                </div>
+
+                <div class="highlight-item">
+                    <span class="highlight-icon">✳</span>
+                    <h4>معمار معاصر</h4>
+                    <p>هوية بصرية مميزة وحضور معماري لافت.</p>
+                </div>
+
+                <div class="highlight-item">
+                    <span class="highlight-icon">◇</span>
+                    <h4>مساحات مدروسة</h4>
+                    <p>تصميم يهتم بالراحة والاستفادة من المساحة.</p>
+                </div>
+
+                <div class="highlight-item">
+                    <span class="highlight-icon">↗</span>
+                    <h4>أسلوب حياة</h4>
+                    <p>تجربة متكاملة تهتم بالتفاصيل اليومية.</p>
+                </div>
+
+            </div>
+
+            <!-- Bottom statement -->
+            <div class="project-bottom project-reveal">
+                <span class="project-bottom-line"></span>
+                <p>VERTEX — MORE THAN A HOME</p>
+                <a href="#location" aria-label="الانتقال إلى قسم الموقع">
+                    <span>اكتشف ما حولك</span>
+                    <span class="bottom-arrow">↓</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <!-- =============== END PROJECT SECTION =============== -->
+
 
     <script type="module" src="./src/main.js"></script>
 
